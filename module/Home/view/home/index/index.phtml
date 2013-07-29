@@ -1,0 +1,280 @@
+<?php
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('index', array('action' => 'index')));
+$form->prepare();
+
+echo $this->form()->openTag($form) . PHP_EOL;
+echo $this->formCollection($form) . PHP_EOL;
+echo $this->form()->closeTag($form) . PHP_EOL;
+
+?>
+    <?php if(is_array($cats)) : ?>
+    <div class="page-header">
+    <?php foreach ($cats as $k => $v) : ?>
+            <p>
+            <h7><?php echo $this->escapeHtml($k); ?>: <small><?php echo $this->escapeHtml($v); ?></small></h7>
+            </p>
+            <?php endforeach; ?>
+
+    
+        <div class="well">
+            <p>
+            <h7>URL: <small><?php echo ($url) ? $this->escapeHtml($url) : "Page Not Found!"; ?></small></h7>
+            </p>
+            <p>
+            <p>
+            <h7>JS Redirect to: <small><?php echo $this->escapeHtml($urlRedirect); ?></small></h7>
+            </p>
+            <p>
+            <p>
+            <h7>Title: <small><?php echo $this->escapeHtml($title); ?></small></h7>
+            </p>
+            <p>
+            <h7>Description: <small><?php echo $this->escapeHtml($desc); ?></small></h7>
+            </p>
+            <p>
+            <h7>Keywords: <small><?php echo $this->escapeHtml($keywords); ?></small></h7>
+            </p>
+        </div>
+    </div>
+    <?php endif; ?>
+    <div class="row">
+        <?php if(is_array($strong)) : ?>
+        <div class="span12">
+            <div class="well">
+                Strong
+            </div>
+            <?php foreach ($strong as $s) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($s); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </div>
+    <div class="row">
+        <?php if(is_array($bold)) : ?>
+        <div class="span6">
+            <div class="well">
+                Bold
+            </div>
+            <?php foreach ($bold as $b) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($b); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+        <?php if(is_array($h1)) : ?>
+        <div class="span6">
+            <div class="well">
+                H1
+            </div>
+            <?php foreach ($h1 as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </div>
+
+    <div class="row">
+        <?php if(is_array($h3)) : ?>
+        <div class="span6">
+            <div class="well">
+                H2
+            </div>
+            <?php foreach ($h2 as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+        <?php if(is_array($h3)) : ?>
+        <div class="span6">
+            <div class="well">
+                H3
+            </div>
+            <?php foreach ($h3 as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </div>
+    <div class="row">
+        <?php if(is_array($h4)) : ?>
+        <div class="span6">
+            <div class="well">
+                H4
+            </div>
+            <?php foreach ($h4 as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+
+        <?php if(is_array($h5)) : ?>
+        <div class="span6">
+            <div class="well">
+                H5
+            </div>
+            <?php foreach ($h5 as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+
+    <?php if(is_array($links)) : ?>
+    <div class="row">
+        <div class="span12">
+            <div class="well">
+                Links
+            </div>
+            <?php foreach ($links as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
+
+
+
+
+<?php if(is_array($pageFrame)) : ?>
+    <div class="hero-unit">
+        <h1><p class="text-center">FRAME.</p></h1>
+    </div>
+    
+<?php foreach ($pageFrame as $pf => $p ) : ?>
+    <div class="page-header">
+        <?php $cats =$cat->getCat($p); foreach ($cats as $k => $v) : ?>
+            <p>
+            <h7><?php echo $this->escapeHtml($k); ?>: <small><?php echo $this->escapeHtml($v); ?></small></h7>
+            </p>
+        <?php endforeach; ?>
+
+    
+        <div class="well">
+
+            <p>
+            <h7>URL: <small><?php echo ($framesUrls[$pf]) ? $framesUrls[$pf] : "Page Not Found!"; ?></small></h7>
+            </p>
+            <p>
+            <p>
+            <p>
+            <h7>Title: <small><?php echo $this->escapeHtml($p->getTitle()); ?></small></h7>
+            </p>
+            <p>
+            <h7>Description: <small><?php echo $this->escapeHtml($p->getMeta('description')); ?></small></h7>
+            </p>
+            <p>
+            <h7>Keywords: <small><?php echo $this->escapeHtml($p->getMeta('keywords')); ?></small></h7>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div class="well">
+                Strong
+            </div>
+            <?php foreach ($p->getStrong() as $s) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($s); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6">
+            <div class="well">
+                Bold
+            </div>
+            <?php foreach ($p->getBold() as $b) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($b); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <div class="span6">
+            <div class="well">
+                H1
+            </div>
+            <?php foreach ($p->getH1() as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <div class="well">
+                H2
+            </div>
+            <?php foreach ($p->getH2() as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <div class="span6">
+            <div class="well">
+                H3
+            </div>
+            <?php foreach ($p->getH3() as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6">
+            <div class="well">
+                H4
+            </div>
+            <?php foreach ($p->getH4() as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+        <div class="span6">
+            <div class="well">
+                H5
+            </div>
+            <?php foreach ($p->getH5() as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <div class="well">
+                Links
+            </div>
+            <?php foreach ($p->getLinks() as $h) : ?>
+            <p>
+            <span class="label label-info"><?php echo $this->escapeHtml($h); ?></span>
+            </p>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endforeach; ?>
+<?php endif; ?>
